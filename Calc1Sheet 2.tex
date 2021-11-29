@@ -1,0 +1,342 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{cancel}
+\setlength{\mathindent}{100pt}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+
+
+
+\pagestyle{fancy}
+
+\lhead{Calculus 1 Reference Sheet}
+\title{Calculus 1 Reference Sheet}
+\author{Liam Shatzel}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+
+\section*{Limits:}
+\underline{Limit Laws:}\par
+\textbf{Sum Law: } 
+\[\lim_{x\to a}[f(x)+g(x)] = \lim_{x\to a}f(x) + \lim_{x \to a}g(x)\]
+
+\textbf{Difference Law: } 
+
+\[\lim_{x\to a}[f(x)-g(x)] = \lim_{x\to a}f(x) - \lim_{x \to a}g(x)\]
+
+\textbf{Constant Multiple Law: } 
+
+\[\lim_{x\to a}[Cf(x)] = C\lim_{x\to a}f(x)\]
+
+\textbf{Product Law: } 
+
+\[\lim_{x\to a}[f(x)*g(x)] = \lim_{x\to a}f(x) * \lim_{x \to a}g(x)\]
+
+\textbf{Quotient Law: } 
+
+\[\lim_{x\to a}\frac{f(x)}{g(x)} = \frac{\lim_{x\to a}f(x)}{\lim_{x \to a}g(x)}\]
+
+\textbf{Power Law: } 
+
+\[\lim_{x\to a}[f(x)]^n = [\lim_{x\to a}f(x)]^n\] where “n” is a positive int. 
+
+
+\textbf{Root Law: } 
+
+\[\lim_{x\to a}\sqrt[n]{f(x)}= \sqrt[n]{\lim_{x\to a}f(x)}\]
+
+\textbf{General Laws: } 
+
+\[\lim_{x\to a}{C} = {C}\]
+
+\[\lim_{x\to a}{x} = {a}\]
+
+\[\lim_{x\to a}\sqrt[n]{x} = \lim{x\to a}\sqrt[n]{a}\]
+
+\textbf{Theorems: }
+\break
+
+If $f(x)$ = $g(x)$ when x $\neq$ a then: $\displaystyle\lim_{x\to a}{f(x)} = \lim_{x\to a}{g(x)}$
+
+\
+\textbf{Theorem} \boxed{1} : $\displaystyle\lim_{x\to a}{f(x)} = L$ if and only if $\displaystyle\lim_{x\to a^-}{f(x)} = \lim_{x\to a^+}{f(x)} = L$ 
+\newline
+
+Theorem 1 refers to continuity. *Note: Continuity does not imply differentiability. 
+\break
+
+\textbf{Theorem} \boxed{2} : if $f(x) \leq g(x)$ then $\displaystyle\lim_{x\to a}{f(x)} \leq \lim_{x\to a}{g(x)}$
+\\
+
+\textbf{Squeeze Theorem} : if $f(x) \leq g(x) \leq h(x)$ when $x$ is near $a$ 
+(except 
+
+possibly at a) and the limits of $f$ and $g$ both exist as $x$ approaches $a$ and: 
+
+$\displaystyle\lim_{x\to a}{f(x)} = \lim_{x\to a}{h(x)} = L$ \underline{then} $\displaystyle\lim_{x\to a}{g(x)} = L$
+\\
+
+
+
+\textbf{\uline{Epsilon Delta Defenition of a Limit (Exact Defenition of a Limit):}}
+\break
+
+$\displaystyle\lim_{x\to c}{f(x)} = L$ given $\displaystyle\epsilon > 0 \implies |x-c_\text{x-cord}|<\delta$ then $\displaystyle |f(x)-L_\text{y-cord}|<\epsilon$
+\\
+
+\begin{tikzpicture}[holdot/.style={circle,draw,fill=white,inner sep=1pt}]
+ \draw[line width=4mm,blue!30] (3,0)--(3,4);
+ \draw[very thick,red!80!pink,dashed] (2.8,0) -- (2.8,4);
+\draw[double distance=4mm,very thick,double=orange,red!80!pink] (0,4) -- (5,4);
+ \draw[very thick,red!80!pink,dashed] (3.2,0) -- (3.2,4.2);
+ \draw[thick,-latex] (-2,0) -- (6,0);
+ \draw[thick,-latex] (0,-1) -- (0,6);
+ \draw[very thick,blue!50!cyan] (-0.8,0.2) -- (3.5,4.5) to[out=45,in=135] 
+ node[pos=0.5,above,font=\large]{$y=f(x)$} (5,4.5);
+ \draw[very thick,dashed] (0,4) node[left] (L) {$L$} -| (3,0) node[below] (x0) {$c$};
+ \draw[very thick,blue!50!cyan,fill=white] (3,4) circle[radius=2pt];
+ \draw (L) -- ++(120:0.7) node[above] {$L+\varepsilon$}
+ (L) -- ++(-120:0.7) node[below] {$L-\varepsilon$}
+ (x0) -- ++(-45:0.7) node[below right] {$c+\delta$}
+ (x0) -- ++(-135:0.7) node[below left] {$c-\delta$};
+\end{tikzpicture}
+\\
+*If $\displaystyle f(x) =$ non-linear we get $\displaystyle{c-\delta_1}$ and $\displaystyle{c-\delta_2}$ we must select the smaller one $\implies$ $\delta = (\delta_1,\delta_2)_{\min}$
+\\
+
+\textbf{Infinite Limits:}
+
+$\displaystyle\lim_{x\to c}{f(x)} = \infty$ if $\displaystyle 0 < |x - c| < \delta$ then $f(x) < M$
+
+\break
+
+\section*{Tangent \& Velocity Problems:}
+{*note: point slope form $\implies$ $\displaystyle y-y_1 = m(x-x_1)$}
+\\
+
+*T $\implies$ tangent line.
+\\
+
+*PQ $\implies$ secant line.
+\\
+
+\textbf{Tangent Problems:}
+\newline
+Look for the \underline{slope of T} or \underline{equation of T.} 
+\newline
+\begin{center}
+    Slope from two points (PQ) $\displaystyle = M_{PQ} = \frac{y_1 - y_2}{x_1 - x_2} = \frac{\Delta y}{\Delta x} $
+\end{center}
+The average of the secant slopes is the closest approximation to the tangent slope. 
+
+\begin{center}
+    $\displaystyle \frac{1}{2} (M_{PQ} + M_{PQ}) = $ tangent slope approximation.
+\end{center}
+\textbf{Velocity Problems:}
+
+*Same idea as tangent problems.
+\newline
+
+$\displaystyle V_{avg} = \frac{\text{change in distance/postition}}{\text{time elapsed}}$ i.e. $\displaystyle f(x) = \frac{f(5.1)-f(5)}{0.1} \because \frac{f(t_1)-f(t_2)}{t_1-t_2}$
+\newline
+\\
+
+Looking for tangent line or \underline{instantaneous velocity}. Average velocity gets closer and closer to instantaneous velocity, like a limit. 
+
+\section*{Derivatives:}
+\subsection*{The Definition of a Derivative:}
+
+
+The definition of a derivative should be relatively familiar from the tangent line in the instantaneous velocity problems. 
+\newline
+
+Being: $\displaystyle f(x)\lim_{h\to 0} = \frac{f(x+h)-f(x)}{h}$ or $\displaystyle f(a)\lim_{x\to a} = \frac{f(x)-f(a)}{x-a}$
+\newline
+\\
+
+\textbf{Differentiation Rules:}
+\\
+
+*note: $\frac{d}{dx}$ means the same thing as $f'(x)$.
+\\
+
+\textbf{Constant (C):} 
+
+\[\frac{d}{dx}(C) = 0 \text{ i.e. } \frac{d}{dx}(3) = 0\]
+\\
+
+\textbf{Power Rule:} If 'n' is any real number then 
+\[\frac{d}{dx}(x^n) = nx^{n-1}\]
+\\
+
+\textbf{Constant Multiple Rule:} 
+\[\frac{d}{dx}[c(f(x))] = c \cdot\frac{d}{dx}f(x)\]
+\\
+
+\textbf{Sum Rule:} 
+\[\frac{d}{dx}[f(x) + g(x)] = \frac{d}{dx}f(x) + \frac{d}{dx}g(x)\]
+\\
+
+\textbf{Difference Rule:} 
+\[\frac{d}{dx}[f(x) - g(x)] = \frac{d}{dx}f(x) - \frac{d}{dx}g(x)\]
+\\
+
+\textbf{Natural Exponential:} 
+\[\frac{d}{dx}(e^x) = e^x\]
+\\
+
+\textbf{Quotient Rule:} 
+\[(\frac{f}{g})' = \frac{f\cdot g' - g \cdot f'}{g^2}\]
+\\
+
+\textbf{Product Rule:}
+\[(f \cdot g)' = f' \cdot g + f \cdot g'\] 
+\\
+
+\textbf{Chain Rule:} 
+\[f(g(x))' = f'(g(x))\cdot g'(x) \text{ i.e. } (\sin(\tan(x)))' = \cos(\tan(x)) \cdot \sec^2x\]
+\\
+
+\subsection*{Derivative Rules:}
+*Derivatives you should memorize.
+\\
+
+
+\textbf{Exponential Functions:}
+
+\[\frac{d}{dx}(e^x) = e^x\]
+
+\[\frac{d}{dx}(a^x) = a^x\ln(a)\]
+
+
+\textbf{Logarithmic Functions:}
+
+\[\frac{d}{dx}(\ln x) = \frac{1}{x}, \quad x > 0\]
+
+\[\frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}, \quad x > 0\]
+
+
+\textbf{Trig Derivatives:}
+
+\[\frac{d}{dx}(\sin x) = \cos x\]
+
+\[\frac{d}{dx}(\cos x) = -\sin x\]
+
+\[\frac{d}{dx}(\tan x) = \sec^2 x\]
+
+\[\frac{d}{dx}(\cot x) = -\csc^2 x\]
+
+\[\frac{d}{dx}(\csc x) = -\csc x \cot x\]
+
+\[\frac{d}{dx}(\sec x) = \sec x \tan x\]
+
+\textbf{Inverse Trig Derivatives:}
+\\
+
+*note: $\arcsin x = \sin^{-1} x$ and does \textbf{not} equal inverse sin of x. $\bcancel{\frac{1}{\sin x}}$
+
+\[\frac{d}{dx}(\arcsin x) = \frac{1}{\sqrt{1-x^2}} \]
+
+\[\frac{d}{dx}(\arccos x) = -\frac{1}{\sqrt{1-x^2}}\]
+
+\[\frac{d}{dx}(\arctan x) = \frac{1}{1+x^2}\]
+
+\[\frac{d}{dx}(\arccot x) = -\frac{1}{1+x^2}\]
+
+\[\frac{d}{dx}(\arccsc x) = -\frac{1}{|x|\sqrt{x^2-1}}\]
+
+\[\frac{d}{dx}(\arcsec x) = \frac{1}{|x|\sqrt{x^2-1}}\]
+
+\textbf{Hyperbolic Functions + Derivatives:}
+
+\[\sinh x = \frac{e^x-e^{-x}}{2} \implies \frac{d}{dx} \sinh x = \cosh x\]
+
+\[\cosh x = \frac{e^x+e^{-x}}{2} \implies \frac{d}{dx} \cosh x = \sinh x\]
+
+\[\tanh x = \frac{\sinh x}{\cosh x} \implies \frac{d}{dx} \tanh x = \sech^2 x\]
+
+\[\csch x = \frac{1}{\sinh x} \implies \frac{d}{dx} \csch x = -\csch x\coth x\]
+
+\[\sech x = \frac{1}{\cosh x} \implies \frac{d}{dx} \sech x = -\sech x\tanh x\]
+
+\[\coth x = \frac{\cosh x}{\sinh x} \implies \frac{d}{dx} \cosh x = -\csch^2 x\]
+\\
+
+\textbf{Implicit Differentiation: }
+*Note: This was confusing to me until I realized it was just an extension of the chain rule. Another trick is to just add an extra prime to whatever term you are not differentiating with respect to. This will make more sense as you work through more problems. 
+
+\[\frac{d}{dx}f(g(x)) = f'(g(x))\cdot g'(x)\]
+\\
+for example:
+\[\frac{d}{dx}(x^2 + y^3 = 4) \implies 2x + 3y^2\cdot y' = 0 \implies y' = \frac{-2x}{3y^2}\]
+
+$\frac{d}{dx}$ can also be read as "differentiating with respect to x."
+\\
+
+$\frac{d}{dy}$ would be "differentiating with respect to y."
+\\
+
+*If you are asked to differentiate with respect to one variable first and then the other, note that you can simply take the reciprocal of the function and you will have respect to the other variable. $\therefore \frac{dx}{dy} = \frac{1}{\frac{dy}{dx}}$
+\\
+
+\textbf{Related Rates: }
+\\
+
+Some people think this is the hardest part of Calculus 1, but as long as you realize it is just a relationship between a few derivatives and formulas and practice them, they become easier. The best way to figure these types of problems out is to jump right into the practice problems.
+\\
+
+Heres a good process to approach these problems with: 
+\\
+
+
+\begin{center}
+    
+    Lets say we are given the problem:
+    \\ 
+    \textit{"A rock is dropped into the center of a circular pond. The ripple moved outward at 4 m/s. How fast does the area change, with respect to time, when the ripple is 3m from the center?"}
+
+\end{center}
+
+\underline{Step 1.)} Lay out all your given information. (This includes drawing diagrams of what the question is asking; which helps to visualize what is going on.) *also note: you will usually be given a rate at which something is moving i.e. 4 m/s (in this case standing for the rate of change in the radius). The key is to remember that a derivative is essentially just a rate of change thus $\frac{dr}{dt} = 4m/s$
+\\
+
+\underline{Step 2.)} Write out what you are solving for. i.e. how fast the area is changing with respect to time. It might look something like this: $\frac{dA}{dt}$ with A standing for area and t standing for time, since the "d"  can be read as "change in." We now have a relationship for change in area over change in time thus being the start of what we are looking for. 
+\\
+
+\underline{Step 3.)} Differentiate using the chain rule/implicit differentation to further the relationship between our equations. Since we are given the radius and we know that we are looking for the area we want to look for a place to fit that radius in. Thus if we differentiate our previous change in time equation with respect to the radius we can start converting from that rate of change in the radius to the rate of change in the area. i.e. $\frac{dA}{dt} = \frac{dA}{dr} \cdot \frac{dr}{dt}$ take a look at the second part of this equation. We can now see that relationship start to develop; in that we have a spot for the rate of change, area, and radius.  
+\\
+
+\underline{Step 4.)} Now we need to find out that last unknown piece of the puzzle, namely the $\frac{dA}{dr}$ part. We can use the equation for the area of a circle $A = \pi r^2$ the A's match up and make the new equation $\frac{d}{dr}(\pi r^2)$ which is just the derivative of that equation with respect to "r" (the radius). $\implies \frac{d}{dr}(\pi r^2) = 2\pi r$.
+\\
+
+\underline{Step 5.)} Put all of the pieces of the puzzle together. This is the fun part. Now that we have everything we need, all we need to do is put it together and solve. We now know that $\frac{dA}{dr} = 2\pi r$, r = 3 and $\frac{dr}{dt} = 4 m/s$ remember $\frac{dA}{dt} = \frac{dA}{dr} \cdot \frac{dr}{dt}$ therefore, plugging everything in we get: $\frac{dA}{dt} = 2 \pi (3m) \cdot 4m/s$ which equals $\frac{dA}{dt} = 24\pi m^2/s$. *The two meter signs multiply thus giving us meters squared per second. 
+\\
+
+\textbf{Critical Numbers/Points: }
+Critical numbers (also called critical points) are just a set of points with confusing names. You can find them by setting the derivative = 0 or where the function DNE.  
+\\
+
+\underline{Defenition:} More formally the defenition of a critical number is: Of a function f(x) a number c in the domain of f(x) such that either f'(c) = 0 or f'(c) does not exist.
+\\
+
+\underline{For example:} \[(\frac{1}{x^2+x})' = \frac{-2x-1}{x^4+2x^3+x^2}\] thus we can see that if we let x = 0 the function will be undefined. So that is our first critical point. Also, if we set the numerator to 0 $-2x-1=0 \implies x = - \frac{1}{2}$ so our second critical point is $x = -\frac{1}{2}$.
+
+\textbf{Absolute Max/Min(extrema): } Find f'(c) = 0 plug in f'(c), [a,b] into f(x). The biggest and smallest numbers are the absolute maximum and minimum respectively. With these kinds of problems you will be given a range of [a,b] such as "find the absolute extrema of $f(x) = x^2$ on [-1,2]". Which is what the [a,b] refers to. 
+
+
+
+
+\end{document}
